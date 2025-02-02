@@ -1,4 +1,5 @@
 "use client";
+import { AdminFooterLayout, AdminHeaderLayout } from "@/components";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { ReactNode } from "react";
@@ -15,9 +16,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }, [router]);
 
   return (
-    <div>
-      <header>Admin Dashboard Header</header>
-      <main>{children}</main>
+    <div className="w-full h-full overflow-x-hidden">
+      <AdminHeaderLayout />
+      <main className="h-full">{children}</main>
+      <AdminFooterLayout />
     </div>
   );
 }
