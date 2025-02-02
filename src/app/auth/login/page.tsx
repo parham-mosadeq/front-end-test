@@ -1,16 +1,17 @@
 "use client";
+
 import { loginService, verifyOtpService } from "@/features";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function AuthLoginPage() {
+  const router = useRouter();
   const [otpInput, setOtpInput] = useState<string>("");
-  const [serverOtp, setServerOtp] = useState<string>("");
 
   useEffect(() => {
     const getOtp = async () => {
       const otp = await loginService();
       console.log(otp, "top code ---");
-      setServerOtp(otp);
     };
     getOtp();
   }, []);
@@ -21,7 +22,10 @@ export default function AuthLoginPage() {
       throw Error("Otp is not correct!");
     }
     verifyOtpService({ otp: +otpInput })
-      .then((res) => console.log(res))
+      .then((res) => {
+        router.replace("/admin/dashboard");
+        localStorage.setItem("access_token", JSON.stringify(res.message));
+      })
       .catch((err) => {
         throw new Error(err);
       });
