@@ -1,16 +1,12 @@
 "use client";
+import { CountdownTimerProps } from "@/interfaces";
 import { useEffect, useState } from "react";
-
-interface CountdownTimerProps {
-  startTime: number;
-  onComplete: () => void;
-}
 
 export function CountdownTimer({ startTime, onComplete }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState(startTime);
 
   useEffect(() => {
-    setTimeLeft(startTime); // Reset the timer when `startTime` changes
+    setTimeLeft(startTime);
   }, [startTime]);
 
   useEffect(() => {

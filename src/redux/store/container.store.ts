@@ -1,12 +1,12 @@
-// app/store/store.ts
 import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import { siloSliceReducer } from "../slices";
+import { REDUX_STORE_KEY } from "@/constants";
 
 const persistConfig = {
-  key: "root",
+  key: REDUX_STORE_KEY,
   storage,
 };
 

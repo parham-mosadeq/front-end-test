@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SiloState } from "./silo-slice.types";
+import { REDUX_SILO_SLICE_NAME } from "@/constants";
 
 const initialState: SiloState = {
   status: "free",
@@ -7,7 +8,7 @@ const initialState: SiloState = {
 };
 
 const siloSlice = createSlice({
-  name: "silo",
+  name: REDUX_SILO_SLICE_NAME,
   initialState,
   reducers: {
     reserveSilo: (state) => {
