@@ -66,7 +66,9 @@ export default function AdminDashboardPage() {
                 <p>volume: {item.volume}</p>
                 <button
                   className="text-white bg-blue-500 px-2 py-1 rounded-md"
-                  onClick={() => router.push(`/admin/silos/${item.id}`)}>
+                  onClick={() =>
+                    router.push(`/admin/silos/${item.id}?status=${item.status}`)
+                  }>
                   Reserve
                 </button>
               </div>

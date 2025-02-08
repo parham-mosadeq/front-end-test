@@ -11,7 +11,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     const token = localStorage.getItem("access_token");
 
     if (!token) {
-      router.push("/auth/login");
+      router.push("/auth/get-otp");
     }
   }, [router]);
 

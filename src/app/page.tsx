@@ -7,7 +7,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/auth/login"); // Ensure the path starts with "/"
+    router.push("/auth/get-otp"); // Ensure the path starts with "/"
   }, []);
 
   return <section>Landing</section>;
